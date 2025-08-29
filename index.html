@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glaucoma Detection App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font-Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #e0e7ff, #c3dafe);
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            border: 2px dashed #a5b4fc;
+            background-color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            overflow: hidden;
+            aspect-ratio: 16/9; /* Use aspect-ratio instead of fixed height for responsiveness */
+        }
+        .image-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+        .heatmap-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.7;
+            display: none;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4f46e5;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <div class="container bg-white p-6 md:p-12 rounded-3xl shadow-2xl flex flex-col lg:flex-row gap-8 lg:gap-12 w-full">
+        <!-- Main Heading -->
+        <div class="lg:w-1/2 flex flex-col justify-between">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 text-center lg:text-left">
+                    Glaucoma Detection App
+                </h1>
+                <p class="text-gray-600 text-lg mb-6 text-center lg:text-left">
+                    Upload a retinal image to demonstrate your model's capabilities.
+                </p>
+            </div>
+            
+            <!-- Image Upload and Preview -->
+            <div class="flex flex-col gap-4">
+                <div id="image-upload-area" class="image-container rounded-xl aspect-video overflow-hidden">
+                    <input type="file" id="image-file-input" class="hidden" accept="image/*">
+                    <img id="image-preview" src="#" alt="Image Preview" class="image-preview">
+                    <canvas id="heatmap-canvas" class="heatmap-overlay"></canvas>
+                    <div id="upload-placeholder" class="text-center text-gray-500 p-4">
+                        <i class="fas fa-cloud-upload-alt text-6xl mb-4 text-gray-400"></i>
+                        <p class="text-xl font-semibold">Click to upload an image</p>
+                        <p class="text-sm">JPEG, PNG formats are supported.</p>
+                    </div>
+                </div>
+                <!-- Hidden canvas for image processing -->
+                <canvas id="hidden-canvas" class="hidden"></canvas>
+
+                <button id="predict-button" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:bg-indigo-700 transition-colors disabled:bg-indigo-400" disabled>
+                    Predict
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="lg:w-1/2 flex flex-col gap-6">
+            <h2 class="text-3xl font-bold text-gray-800 text-center lg:text-left">Prediction Results</h2>
+            <div id="result-box" class="bg-gray-50 p-6 rounded-xl shadow-inner min-h-[200px] flex flex-col items-center justify-center text-center">
+                <div id="loading-state" class="hidden">
+                    <div class="loading-spinner"></div>
+                    <p class="mt-4 text-lg text-gray-600">Model is analyzing the image...</p>
+                </div>
+                <div id="initial-state">
+                    <i class="fas fa-cogs text-6xl text-gray-300"></i>
+                    <p class="mt-4 text-lg text-gray-500">Results will appear here after you upload an image.</p>
+                </div>
+                <div id="result-state" class="hidden">
+                    <div class="flex items-center mb-4">
+                        <i id="result-icon" class="text-4xl"></i>
+                        <h3 id="prediction-text" class="text-3xl font-bold ml-4"></h3>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                        <div id="confidence-bar" class="bg-green-500 h-4 rounded-full" style="width: 0%;"></div>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                        Confidence: <span id="confidence-text" class="font-semibold text-gray-800">0%</span>
+                    </p>
+                    <p class="text-sm text-gray-600 mt-4">
+                        **Grad-CAM:** The heatmap in red and yellow highlights the regions where the model focused the most.
+                    </p>
+                </div>
+                <div id="error-state" class="hidden text-red-600">
+                    <i class="fas fa-exclamation-circle text-6xl mb-4"></i>
+                    <p class="mt-4 text-lg">An error occurred. Please try again.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageInput = document.getElementById('image-file-input');
+            const imageUploadArea = document.getElementById('image-upload-area');
+            const imagePreview = document.getElementById('image-preview');
+            const uploadPlaceholder = document.getElementById('upload-placeholder');
+            const predictButton = document.getElementById('predict-button');
+            const initialState = document.getElementById('initial-state');
+            const loadingState = document.getElementById('loading-state');
+            const resultState = document.getElementById('result-state');
+            const errorState = document.getElementById('error-state');
+            const predictionText = document.getElementById('prediction-text');
+            const confidenceBar = document.getElementById('confidence-bar');
+            const confidenceText = document.getElementById('confidence-text');
+            const resultIcon = document.getElementById('result-icon');
+            const hiddenCanvas = document.getElementById('hidden-canvas');
+            const hiddenCtx = hiddenCanvas.getContext('2d');
+            
+            let uploadedFile = null;
+
+            // Image cropping logic
+            function autoCropRetina(img) {
+                hiddenCanvas.width = img.width;
+                hiddenCanvas.height = img.height;
+                hiddenCtx.drawImage(img, 0, 0);
+                
+                const imageData = hiddenCtx.getImageData(0, 0, hiddenCanvas.width, hiddenCanvas.height);
+                const data = imageData.data;
+                
+                let minX = hiddenCanvas.width;
+                let minY = hiddenCanvas.height;
+                let maxX = 0;
+                let maxY = 0;
+
+                for (let y = 0; y < hiddenCanvas.height; y++) {
+                    for (let x = 0; x < hiddenCanvas.width; x++) {
+                        const i = (y * hiddenCanvas.width + x) * 4;
+                        if (data[i] > 10 || data[i + 1] > 10 || data[i + 2] > 10) {
+                            minX = Math.min(minX, x);
+                            minY = Math.min(minY, y);
+                            maxX = Math.max(maxX, x);
+                            maxY = Math.max(maxY, y);
+                        }
+                    }
+                }
+
+                if (maxX === 0 && maxY === 0) {
+                    return null; // Return null if no non-black pixels are found
+                }
+
+                const margin = 10;
+                minX = Math.max(0, minX - margin);
+                minY = Math.max(0, minY - margin);
+                maxX = Math.min(hiddenCanvas.width, maxX + margin);
+                maxY = Math.min(hiddenCanvas.height, maxY + margin);
+
+                const cropWidth = maxX - minX;
+                const cropHeight = maxY - minY;
+
+                const croppedCanvas = document.createElement('canvas');
+                croppedCanvas.width = cropWidth;
+                croppedCanvas.height = cropHeight;
+                const croppedCtx = croppedCanvas.getContext('2d');
+                croppedCtx.drawImage(img, minX, minY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+                
+                return croppedCanvas.toDataURL('image/jpeg');
+            }
+            
+            // Handle image file selection
+            imageUploadArea.addEventListener('click', () => imageInput.click());
+            imageInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    uploadedFile = file; // Store the file for later use in prediction
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const img = new Image();
+                        img.onload = () => {
+                            const croppedImageURL = autoCropRetina(img);
+                            
+                            if (croppedImageURL) {
+                                imagePreview.src = croppedImageURL;
+                                imagePreview.style.display = 'block';
+                            } else {
+                                imagePreview.src = event.target.result;
+                                imagePreview.style.display = 'block';
+                            }
+                            
+                            uploadPlaceholder.classList.add('hidden');
+                            predictButton.disabled = false;
+                            
+                            // Clear previous results
+                            initialState.classList.remove('hidden');
+                            resultState.classList.add('hidden');
+                            loadingState.classList.add('hidden');
+                            errorState.classList.add('hidden');
+                        };
+                        img.src = event.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Handle the prediction button click
+            predictButton.addEventListener('click', () => {
+                if (!uploadedFile) {
+                    return;
+                }
+                
+                // Show loading state and disable button
+                initialState.classList.add('hidden');
+                resultState.classList.add('hidden');
+                errorState.classList.add('hidden');
+                loadingState.classList.remove('hidden');
+                predictButton.disabled = true;
+                predictButton.textContent = 'Analyzing...';
+
+                // Create a FormData object to send the file to the server
+                const formData = new FormData();
+                formData.append('image', uploadedFile);
+
+                fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Hide loading state and show result
+                    loadingState.classList.add('hidden');
+                    predictButton.disabled = false;
+                    predictButton.textContent = 'Predict';
+
+                    if (data.error) {
+                        errorState.classList.remove('hidden');
+                        console.error('Server Error:', data.error);
+                        return;
+                    }
+
+                    resultState.classList.remove('hidden');
+                    
+                    if (data.prediction === 'Glaucoma') {
+                        predictionText.textContent = 'Glaucoma Detected!';
+                        predictionText.className = 'text-3xl font-bold ml-4 text-red-600';
+                        resultIcon.className = 'fas fa-exclamation-triangle text-red-600';
+                        confidenceBar.style.backgroundColor = '#ef4444';
+                    } else {
+                        predictionText.textContent = 'Glaucoma Not Detected';
+                        predictionText.className = 'text-3xl font-bold ml-4 text-green-600';
+                        resultIcon.className = 'fas fa-check-circle text-green-600';
+                        confidenceBar.style.backgroundColor = '#22c55e';
+                    }
+
+                    confidenceText.textContent = `${(data.confidence * 100).toFixed(2)}%`;
+                    confidenceBar.style.width = `${data.confidence * 100}%`;
+
+                    // Display the Grad-CAM heatmap from the server response
+                    if (data.grad_cam_image) {
+                        imagePreview.src = `data:image/jpeg;base64,${data.grad_cam_image}`;
+                    }
+                })
+                .catch(error => {
+                    // Handle any network or fetch errors
+                    loadingState.classList.add('hidden');
+                    errorState.classList.remove('hidden');
+                    predictButton.disabled = false;
+                    predictButton.textContent = 'Predict';
+                    console.error('Fetch Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

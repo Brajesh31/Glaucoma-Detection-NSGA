@@ -1,0 +1,113 @@
+/* style.css — greenblackgreyneonspace theme */
+/* Palette:
+   --neon: #08CB00 (rgb(8,203,0))
+   --dark-green: #253900 (rgb(37,57,0))
+   --black: #000000
+   --light: #EEEEEE
+*/
+
+:root{
+  --neon: #08CB00;
+  --dark-green: #253900;
+  --black: #000000;
+  --light: #EEEEEE;
+  --glass: rgba(255,255,255,0.04);
+  --muted: #BDBDBD;
+  --card-radius: 12px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family: 'Poppins', sans-serif;
+  margin:0;
+  background: linear-gradient(180deg,var(--black), #060600 120px);
+  color: var(--light);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-top:72px; /* space for fixed navbar */
+}
+
+/* Navbar */
+.nav-dark{
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+}
+.navbar-brand{font-weight:700; color:var(--neon) !important}
+.nav-link{color:var(--light) !important; font-weight:600; margin-left:0.6rem}
+.nav-link:hover{color:var(--neon) !important}
+
+/* Hero */
+.hero{
+  min-height:60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://placehold.co/1600x900/253900/000000?text=Fundus+Background');
+  background-size:cover;
+  background-position:center;
+  padding:5rem 0;
+}
+.display-title{font-size:2.25rem; color:var(--neon); font-weight:700; letter-spacing:0.4px}
+.lead{color:var(--muted)}
+
+/* Card & components */
+.card-elevated{
+  background: linear-gradient(180deg, rgba(37,57,0,0.9), rgba(0,0,0,0.6));
+  border-radius: var(--card-radius);
+  box-shadow: 0 8px 30px rgba(8,203,0,0.06);
+  color:var(--light);
+}
+.uploader{
+  background: rgba(0,0,0,0.35);
+  border: 1px dashed rgba(8,203,0,0.25);
+  padding:1.2rem;
+  border-radius:10px;
+}
+.file-label{
+  display:block;
+  cursor:pointer;
+  border-radius: 10px;
+  padding:0.6rem;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+  text-align:center;
+}
+.file-label input[type=file]{display:none}
+.file-label-text{color:var(--muted)}
+
+/* Preview & result */
+.preview-img{max-width:100%; height:auto; border-radius:10px; border:1px solid rgba(255,255,255,0.04)}
+.results{background:transparent}
+.result-badge{background:rgba(0,0,0,0.45); display:inline-flex; gap:0.6rem; align-items:center}
+#grad-cam-image{max-width:100%; border-radius:10px; border:2px solid rgba(8,203,0,0.15)}
+
+/* Team */
+.team-card{background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(37,57,0,0.2)); border-radius:12px}
+.team-photo{width:120px;height:120px; object-fit:cover; border:6px solid rgba(8,203,0,0.06)}
+
+/* footer */
+.site-footer{background:transparent; color:var(--muted)}
+
+/* typography helpers */
+.neon{color:var(--neon)}
+.muted{color:var(--muted)}
+.small{font-size:0.875rem}
+.btn-primary{
+  background:var(--neon);
+  border-color:var(--neon);
+  color:#000;
+  font-weight:700;
+  border-radius:10px;
+  transition:transform .18s ease, box-shadow .18s;
+}
+.btn-primary:hover{background:#1f3b00; transform:translateY(-3px); box-shadow: 0 8px 30px rgba(8,203,0,0.08)}
+
+/* responsiveness */
+@media (max-width:767px){
+  .display-title{font-size:1.6rem}
+  .hero{padding:3rem 1rem}
+  .team-photo{width:100px;height:100px}
+}

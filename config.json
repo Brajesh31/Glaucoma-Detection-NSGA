@@ -1,0 +1,38 @@
+{
+    "project_name": "glaucoma_detection_nsga",
+    "data": {
+        "dataset_path": "datasets",
+        "acrima_path": "datasets/Acrima",
+        "drishti_path": "datasets/Drishti-GS1",
+        "hrf_path": "datasets/HRF",
+        "origa_path": "datasets/ORIGA-LIGHT",
+        "rim_one_path": "datasets/Rim-One",
+        "image_size": 224,
+        "batch_size": 32,
+        "data_subset_ratio": 1.0
+    },
+    "model": {
+        "num_classes": 2,
+        "base_model": "resnet18"
+    },
+    "nsga_ii": {
+        "population_size": 3,
+        "generations": 3,
+        "crossover_probability": 0.9,
+        "mutation_probability": 0.2,
+        "n_hyperparams": 5
+    },
+    "training": {
+        "epochs": 10,
+        "early_stopping_patience": 3,
+        "k_folds": 5
+    },
+    "results": {
+        "base_dir": "results",
+        "logs_dir": "logs",
+        "models_dir": "models",
+        "metrics_dir": "metrics",
+        "plots_dir": "plots",
+        "nsga_runs_dir": "nsga_runs"
+    }
+}

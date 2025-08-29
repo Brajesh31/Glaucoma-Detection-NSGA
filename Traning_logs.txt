@@ -1,0 +1,411 @@
+(my_gpu_env) PS G:\ICAT Project\glaucoma_detection_project> python main.py
+Configuration saved to 'config.json'.
+Configuration saved to 'config.json'.
+Project directories have been created.
+Project directories have been created.
+Using device: cuda
+--- Evaluating Individual: num_layers=3, filter_size=3, num_filters=16, lr=1.00e-03, dropout=0.500 ---
+Loaded 30000 actual image paths.
+Number of Glaucoma cases: 15000
+Number of Normal cases: 15000
+Dataset is balanced: True
+  Running Fold 1/5 for current individual...
+--- Training Hyperparams (fold 1) --- layers:3, fsize:3, nfilters:16, lr:1.00e-03, drop:0.500
+Epoch 1/10, Train Loss: 0.6800, Val Loss: 0.6403, Val AUC: 0.7107
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.7107. Saving best model.
+Epoch 2/10, Train Loss: 0.6013, Val Loss: 0.5158, Val AUC: 0.8368
+Checkpoint saved for epoch 2.
+Validation AUC improved from 0.7107 to 0.8368. Saving best model.
+Epoch 3/10, Train Loss: 0.5294, Val Loss: 0.4418, Val AUC: 0.8792
+Checkpoint saved for epoch 3.
+Validation AUC improved from 0.8368 to 0.8792. Saving best model.
+Epoch 4/10, Train Loss: 0.4941, Val Loss: 0.4747, Val AUC: 0.8741
+Checkpoint saved for epoch 4.
+Epoch 5/10, Train Loss: 0.4706, Val Loss: 0.3638, Val AUC: 0.9147
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8792 to 0.9147. Saving best model.
+Epoch 6/10, Train Loss: 0.4494, Val Loss: 0.4290, Val AUC: 0.9041
+Checkpoint saved for epoch 6.
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 4.
+Epoch 5/10, Train Loss: 0.4706, Val Loss: 0.3638, Val AUC: 0.9147
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8792 to 0.9147. Saving best model.
+Epoch 6/10, Train Loss: 0.4494, Val Loss: 0.4290, Val AUC: 0.9041
+Checkpoint saved for epoch 6.
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 5/10, Train Loss: 0.4706, Val Loss: 0.3638, Val AUC: 0.9147
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8792 to 0.9147. Saving best model.
+Epoch 6/10, Train Loss: 0.4494, Val Loss: 0.4290, Val AUC: 0.9041
+Checkpoint saved for epoch 6.
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8792 to 0.9147. Saving best model.
+Epoch 6/10, Train Loss: 0.4494, Val Loss: 0.4290, Val AUC: 0.9041
+Checkpoint saved for epoch 6.
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Validation AUC improved from 0.8792 to 0.9147. Saving best model.
+Epoch 6/10, Train Loss: 0.4494, Val Loss: 0.4290, Val AUC: 0.9041
+Checkpoint saved for epoch 6.
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Epoch 6/10, Train Loss: 0.4494, Val Loss: 0.4290, Val AUC: 0.9041
+Checkpoint saved for epoch 6.
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Checkpoint saved for epoch 6.
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Checkpoint saved for epoch 8.
+Epoch 9/10, Train Loss: 0.4170, Val Loss: 0.3891, Val AUC: 0.9027
+Checkpoint saved for epoch 9.
+Epoch 10/10, Train Loss: 0.4069, Val Loss: 0.3565, Val AUC: 0.9279
+Checkpoint saved for epoch 10.
+Validation AUC improved from 0.9262 to 0.9279. Saving best model.
+Best metrics for fold 1 saved to 'results\metrics\fold_0_metrics.json'.
+  Running Fold 2/5 for current individual...
+--- Training Hyperparams (fold 2) --- layers:3, fsize:3, nfilters:16, lr:1.00e-03, drop:0.500
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Epoch 7/10, Train Loss: 0.4365, Val Loss: 0.3464, Val AUC: 0.9262
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9147 to 0.9262. Saving best model.
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Epoch 8/10, Train Loss: 0.4279, Val Loss: 0.3524, Val AUC: 0.9200
+Checkpoint saved for epoch 8.
+Epoch 9/10, Train Loss: 0.4170, Val Loss: 0.3891, Val AUC: 0.9027
+Checkpoint saved for epoch 9.
+Epoch 10/10, Train Loss: 0.4069, Val Loss: 0.3565, Val AUC: 0.9279
+Checkpoint saved for epoch 10.
+Validation AUC improved from 0.9262 to 0.9279. Saving best model.
+Best metrics for fold 1 saved to 'results\metrics\fold_0_metrics.json'.
+  Running Fold 2/5 for current individual...
+--- Training Hyperparams (fold 2) --- layers:3, fsize:3, nfilters:16, lr:1.00e-03, drop:0.500
+Epoch 1/10, Train Loss: 0.6854, Val Loss: 0.6692, Val AUC: 0.6425
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.6425. Saving best model.
+Epoch 2/10, Train Loss: 0.6728, Val Loss: 0.6459, Val AUC: 0.6893
+Checkpoint saved for epoch 2.
+Validation AUC improved from 0.6425 to 0.6893. Saving best model.
+Epoch 3/10, Train Loss: 0.6514, Val Loss: 0.6543, Val AUC: 0.7258
+Checkpoint saved for epoch 3.
+Validation AUC improved from 0.6893 to 0.7258. Saving best model.
+Epoch 4/10, Train Loss: 0.6209, Val Loss: 0.6048, Val AUC: 0.7338
+Checkpoint saved for epoch 4.
+Validation AUC improved from 0.7258 to 0.7338. Saving best model.
+Epoch 5/10, Train Loss: 0.6038, Val Loss: 0.7523, Val AUC: 0.8263
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.7338 to 0.8263. Saving best model.
+Epoch 6/10, Train Loss: 0.5778, Val Loss: 0.5403, Val AUC: 0.8296
+Checkpoint saved for epoch 6.
+Validation AUC improved from 0.8263 to 0.8296. Saving best model.
+Epoch 7/10, Train Loss: 0.5629, Val Loss: 0.6139, Val AUC: 0.7657
+Checkpoint saved for epoch 7.
+Epoch 8/10, Train Loss: 0.5476, Val Loss: 0.6078, Val AUC: 0.8666
+Checkpoint saved for epoch 8.
+Validation AUC improved from 0.8296 to 0.8666. Saving best model.
+Epoch 9/10, Train Loss: 0.5344, Val Loss: 0.4965, Val AUC: 0.8468
+Checkpoint saved for epoch 9.
+Epoch 10/10, Train Loss: 0.5232, Val Loss: 0.5023, Val AUC: 0.8538
+Checkpoint saved for epoch 10.
+Best metrics for fold 2 saved to 'results\metrics\fold_1_metrics.json'.
+  Running Fold 3/5 for current individual...
+
+--- Training Hyperparams (fold 3) --- layers:3, fsize:3, nfilters:16, lr:1.00e-03, drop:0.500
+Epoch 1/10, Train Loss: 0.6823, Val Loss: 0.8215, Val AUC: 0.6908
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.6908. Saving best model.
+Epoch 2/10, Train Loss: 0.6419, Val Loss: 0.6090, Val AUC: 0.7061
+Checkpoint saved for epoch 2.
+Validation AUC improved from 0.6908 to 0.7061. Saving best model.
+Epoch 3/10, Train Loss: 0.5883, Val Loss: 0.5045, Val AUC: 0.8057
+Checkpoint saved for epoch 3.
+Validation AUC improved from 0.7061 to 0.8057. Saving best model.
+Epoch 4/10, Train Loss: 0.5456, Val Loss: 0.4147, Val AUC: 0.8773
+Checkpoint saved for epoch 4.
+Validation AUC improved from 0.8057 to 0.8773. Saving best model.
+Epoch 5/10, Train Loss: 0.5138, Val Loss: 0.4311, Val AUC: 0.8864
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8773 to 0.8864. Saving best model.
+Epoch 6/10, Train Loss: 0.4894, Val Loss: 0.4021, Val AUC: 0.8947
+Checkpoint saved for epoch 6.
+Validation AUC improved from 0.8864 to 0.8947. Saving best model.
+Epoch 7/10, Train Loss: 0.4673, Val Loss: 0.5137, Val AUC: 0.8536
+Checkpoint saved for epoch 7.
+Epoch 8/10, Train Loss: 0.4576, Val Loss: 0.4083, Val AUC: 0.9063
+Checkpoint saved for epoch 8.
+Validation AUC improved from 0.8947 to 0.9063. Saving best model.
+Epoch 9/10, Train Loss: 0.4467, Val Loss: 0.4309, Val AUC: 0.8983
+Checkpoint saved for epoch 9.
+Epoch 10/10, Train Loss: 0.4351, Val Loss: 0.3788, Val AUC: 0.9160
+Checkpoint saved for epoch 10.
+Validation AUC improved from 0.9063 to 0.9160. Saving best model.
+Best metrics for fold 3 saved to 'results\metrics\fold_2_metrics.json'.
+  Running Fold 4/5 for current individual...
+
+--- Training Hyperparams (fold 4) --- layers:3, fsize:3, nfilters:16, lr:1.00e-03, drop:0.500
+Epoch 1/10, Train Loss: 0.6713, Val Loss: 0.6052, Val AUC: 0.7346
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.7346. Saving best model.
+Epoch 2/10, Train Loss: 0.5781, Val Loss: 0.6197, Val AUC: 0.7853
+Checkpoint saved for epoch 2.
+Validation AUC improved from 0.7346 to 0.7853. Saving best model.
+Epoch 3/10, Train Loss: 0.5087, Val Loss: 0.4239, Val AUC: 0.8838
+Checkpoint saved for epoch 3.
+Validation AUC improved from 0.7853 to 0.8838. Saving best model.
+Epoch 4/10, Train Loss: 0.4721, Val Loss: 0.4023, Val AUC: 0.8936
+Checkpoint saved for epoch 4.
+Validation AUC improved from 0.8838 to 0.8936. Saving best model.
+Epoch 5/10, Train Loss: 0.4541, Val Loss: 0.3960, Val AUC: 0.9035
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8936 to 0.9035. Saving best model.
+Epoch 6/10, Train Loss: 0.4425, Val Loss: 0.4011, Val AUC: 0.8986
+Checkpoint saved for epoch 6.
+Epoch 7/10, Train Loss: 0.4243, Val Loss: 0.3560, Val AUC: 0.9140
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.9035 to 0.9140. Saving best model.
+Epoch 8/10, Train Loss: 0.4160, Val Loss: 0.3765, Val AUC: 0.9126
+Checkpoint saved for epoch 8.
+Epoch 9/10, Train Loss: 0.4068, Val Loss: 0.3464, Val AUC: 0.9232
+Checkpoint saved for epoch 9.
+Validation AUC improved from 0.9140 to 0.9232. Saving best model.
+Epoch 10/10, Train Loss: 0.3981, Val Loss: 0.3984, Val AUC: 0.8990
+Checkpoint saved for epoch 10.
+Best metrics for fold 4 saved to 'results\metrics\fold_3_metrics.json'.
+  Running Fold 5/5 for current individual...
+
+--- Training Hyperparams (fold 5) --- layers:3, fsize:3, nfilters:16, lr:1.00e-03, drop:0.500
+Epoch 1/10, Train Loss: 0.6867, Val Loss: 0.6898, Val AUC: 0.6321
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.6321. Saving best model.
+Epoch 2/10, Train Loss: 0.6578, Val Loss: 0.5615, Val AUC: 0.8154
+Checkpoint saved for epoch 2.
+Validation AUC improved from 0.6321 to 0.8154. Saving best model.
+Epoch 3/10, Train Loss: 0.5914, Val Loss: 0.6760, Val AUC: 0.8094
+Checkpoint saved for epoch 3.
+Epoch 4/10, Train Loss: 0.5432, Val Loss: 0.4190, Val AUC: 0.8917
+Checkpoint saved for epoch 4.
+Validation AUC improved from 0.8154 to 0.8917. Saving best model.
+Epoch 5/10, Train Loss: 0.5166, Val Loss: 0.4707, Val AUC: 0.8768
+Checkpoint saved for epoch 5.
+Epoch 6/10, Train Loss: 0.4911, Val Loss: 0.4687, Val AUC: 0.8945
+Checkpoint saved for epoch 6.
+Validation AUC improved from 0.8917 to 0.8945. Saving best model.
+Epoch 7/10, Train Loss: 0.4779, Val Loss: 0.3918, Val AUC: 0.9023
+Checkpoint saved for epoch 7.
+Validation AUC improved from 0.8945 to 0.9023. Saving best model.
+Epoch 8/10, Train Loss: 0.4572, Val Loss: 0.3544, Val AUC: 0.9265
+Checkpoint saved for epoch 8.
+Validation AUC improved from 0.9023 to 0.9265. Saving best model.
+Epoch 9/10, Train Loss: 0.4534, Val Loss: 0.3914, Val AUC: 0.9100
+Checkpoint saved for epoch 9.
+Epoch 10/10, Train Loss: 0.4392, Val Loss: 0.3533, Val AUC: 0.9275
+Checkpoint saved for epoch 10.
+Validation AUC improved from 0.9265 to 0.9275. Saving best model.
+Best metrics for fold 5 saved to 'results\metrics\fold_4_metrics.json'.
+  Individual Evaluation Complete: Avg F1=0.7911, Avg AUC=0.9123
+
+--- Evaluating Individual: num_layers=3, filter_size=3, num_filters=32, lr=1.00e-02, dropout=0.500 ---
+Loaded 30000 actual image paths.
+Number of Glaucoma cases: 15000
+Number of Normal cases: 15000
+Dataset is balanced: True
+  Running Fold 1/5 for current individual...
+
+--- Training Hyperparams (fold 1) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6942, Val Loss: 0.6935, Val AUC: 0.4597
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.4597. Saving best model.
+Epoch 2/10, Train Loss: 0.6935, Val Loss: 0.6945, Val AUC: 0.5000
+Checkpoint saved for epoch 2.
+Validation AUC improved from 0.4597 to 0.5000. Saving best model.
+Skipping ROC plot for epoch 1, fold 0: Not enough unique labels/probabilities.
+Skipping PR plot for epoch 1, fold 0: Not enough unique labels/probabilities.
+Epoch 3/10, Train Loss: 0.6937, Val Loss: 0.6932, Val AUC: 0.5000
+Checkpoint saved for epoch 3.
+Epoch 4/10, Train Loss: 0.6938, Val Loss: 0.6931, Val AUC: 0.5000
+Checkpoint saved for epoch 4.
+Epoch 5/10, Train Loss: 0.6937, Val Loss: 0.6936, Val AUC: 0.5000
+Checkpoint saved for epoch 5.
+Early stopping triggered.
+Best metrics for fold 1 saved to 'results\metrics\fold_0_metrics.json'.
+  Running Fold 2/5 for current individual...
+
+--- Training Hyperparams (fold 2) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6946, Val Loss: 0.6940, Val AUC: 0.5651
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.5651. Saving best model.
+Epoch 2/10, Train Loss: 0.6933, Val Loss: 0.6941, Val AUC: 0.5000
+Checkpoint saved for epoch 2.
+Epoch 3/10, Train Loss: 0.6937, Val Loss: 0.6932, Val AUC: 0.5000
+Checkpoint saved for epoch 3.
+Epoch 4/10, Train Loss: 0.6935, Val Loss: 0.6941, Val AUC: 0.5000
+Checkpoint saved for epoch 4.
+Early stopping triggered.
+Best metrics for fold 2 saved to 'results\metrics\fold_1_metrics.json'.
+  Running Fold 3/5 for current individual...
+
+--- Training Hyperparams (fold 3) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6943, Val Loss: 0.6932, Val AUC: 0.5166
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.5166. Saving best model.
+Epoch 2/10, Train Loss: 0.6935, Val Loss: 0.6936, Val AUC: 0.5002
+Checkpoint saved for epoch 2.
+Epoch 3/10, Train Loss: 0.6939, Val Loss: 0.6932, Val AUC: 0.5000
+Checkpoint saved for epoch 3.
+Epoch 4/10, Train Loss: 0.6937, Val Loss: 0.6931, Val AUC: 0.5000
+Checkpoint saved for epoch 4.
+Early stopping triggered.
+Best metrics for fold 3 saved to 'results\metrics\fold_2_metrics.json'.
+  Running Fold 4/5 for current individual...
+
+--- Training Hyperparams (fold 4) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6944, Val Loss: 0.6932, Val AUC: 0.4302
+Checkpoint saved for epoch 1.
+
+--- Training Hyperparams (fold 4) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6944, Val Loss: 0.6932, Val AUC: 0.4302
+
+
+--- Training Hyperparams (fold 4) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6944, Val Loss: 0.6932, Val AUC: 0.4302
+
+--- Training Hyperparams (fold 4) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6944, Val Loss: 0.6932, Val AUC: 0.4302
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.4302. Saving best model.
+Epoch 2/10, Train Loss: 0.6934, Val Loss: 0.6932, Val AUC: 0.5000
+Checkpoint saved for epoch 2.
+
+--- Training Hyperparams (fold 4) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6944, Val Loss: 0.6932, Val AUC: 0.4302
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.4302. Saving best model.
+
+--- Training Hyperparams (fold 4) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6944, Val Loss: 0.6932, Val AUC: 0.4302
+Epoch 1/10, Train Loss: 0.6944, Val Loss: 0.6932, Val AUC: 0.4302
+Checkpoint saved for epoch 1.
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.4302. Saving best model.
+Epoch 2/10, Train Loss: 0.6934, Val Loss: 0.6932, Val AUC: 0.5000
+Checkpoint saved for epoch 2.
+Validation AUC improved from 0.4302 to 0.5000. Saving best model.
+Skipping ROC plot for epoch 1, fold 3: Not enough unique labels/probabilities.
+Skipping PR plot for epoch 1, fold 3: Not enough unique labels/probabilities.
+Epoch 3/10, Train Loss: 0.6934, Val Loss: 0.6939, Val AUC: 0.5000
+Checkpoint saved for epoch 3.
+Epoch 4/10, Train Loss: 0.6937, Val Loss: 0.6946, Val AUC: 0.5000
+Checkpoint saved for epoch 4.
+Epoch 5/10, Train Loss: 0.6936, Val Loss: 0.6942, Val AUC: 0.5000
+Checkpoint saved for epoch 5.
+Early stopping triggered.    
+Best metrics for fold 4 saved to 'results\metrics\fold_3_metrics.json'.
+  Running Fold 5/5 for current individual...
+
+--- Training Hyperparams (fold 5) --- layers:3, fsize:3, nfilters:32, lr:1.00e-02, drop:0.500
+Epoch 1/10, Train Loss: 0.6942, Val Loss: 0.6931, Val AUC: 0.5382
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.5382. Saving best model.
+Epoch 2/10, Train Loss: 0.6937, Val Loss: 0.6933, Val AUC: 0.5000
+Checkpoint saved for epoch 2.
+Epoch 3/10, Train Loss: 0.6935, Val Loss: 0.6933, Val AUC: 0.5000
+Checkpoint saved for epoch 3.
+Epoch 4/10, Train Loss: 0.6937, Val Loss: 0.6931, Val AUC: 0.5000
+Checkpoint saved for epoch 4.
+Early stopping triggered.
+Best metrics for fold 5 saved to 'results\metrics\fold_4_metrics.json'.
+  Individual Evaluation Complete: Avg F1=0.4000, Avg AUC=0.5240
+
+--- Evaluating Individual: num_layers=2, filter_size=5, num_filters=64, lr=1.00e-03, dropout=0.300 ---
+Loaded 30000 actual image paths.
+Number of Glaucoma cases: 15000
+Number of Normal cases: 15000
+Dataset is balanced: True
+  Running Fold 1/5 for current individual...
+
+--- Training Hyperparams (fold 1) --- layers:2, fsize:5, nfilters:64, lr:1.00e-03, drop:0.300
+Epoch 1/10, Train Loss: 0.6751, Val Loss: 0.6267, Val AUC: 0.6978
+Checkpoint saved for epoch 1.
+Validation AUC improved from -1.0000 to 0.6978. Saving best model.
+Epoch 2/10, Train Loss: 0.6325, Val Loss: 0.6181, Val AUC: 0.7433
+Checkpoint saved for epoch 2.
+Validation AUC improved from 0.6978 to 0.7433. Saving best model.
+Epoch 3/10, Train Loss: 0.6141, Val Loss: 0.5467, Val AUC: 0.8050
+Checkpoint saved for epoch 3.
+Validation AUC improved from 0.7433 to 0.8050. Saving best model.
+Epoch 4/10, Train Loss: 0.5935, Val Loss: 0.5228, Val AUC: 0.8112
+Checkpoint saved for epoch 4.
+Validation AUC improved from 0.8050 to 0.8112. Saving best model.
+Epoch 5/10, Train Loss: 0.5740, Val Loss: 0.4954, Val AUC: 0.8353
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8112 to 0.8353. Saving best model.
+Epoch 6/10, Train Loss: 0.5564, Val Loss: 0.4758, Val AUC: 0.8393
+Checkpoint saved for epoch 6.
+Checkpoint saved for epoch 3.
+Validation AUC improved from 0.7433 to 0.8050. Saving best model.
+Epoch 4/10, Train Loss: 0.5935, Val Loss: 0.5228, Val AUC: 0.8112
+Checkpoint saved for epoch 4.
+Validation AUC improved from 0.8050 to 0.8112. Saving best model.
+Epoch 5/10, Train Loss: 0.5740, Val Loss: 0.4954, Val AUC: 0.8353
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8112 to 0.8353. Saving best model.
+Epoch 6/10, Train Loss: 0.5564, Val Loss: 0.4758, Val AUC: 0.8393
+Checkpoint saved for epoch 6.
+Epoch 5/10, Train Loss: 0.5740, Val Loss: 0.4954, Val AUC: 0.8353
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8112 to 0.8353. Saving best model.
+Epoch 6/10, Train Loss: 0.5564, Val Loss: 0.4758, Val AUC: 0.8393
+Checkpoint saved for epoch 6.
+Checkpoint saved for epoch 5.
+Validation AUC improved from 0.8112 to 0.8353. Saving best model.
+Epoch 6/10, Train Loss: 0.5564, Val Loss: 0.4758, Val AUC: 0.8393
+Checkpoint saved for epoch 6.
+Checkpoint saved for epoch 6.
+Validation AUC improved from 0.8353 to 0.8393. Saving best model.
+Epoch 7/10, Train Loss: 0.5286, Val Loss: 0.4889, Val AUC: 0.8254
+Checkpoint saved for epoch 7.
+Epoch 8/10, Train Loss: 0.5112, Val Loss: 0.4549, Val AUC: 0.8548
+Checkpoint saved for epoch 8.
+Checkpoint saved for epoch 8.
+Validation AUC improved from 0.8393 to 0.8548. Saving best model.
+Epoch 9/10, Train Loss: 0.5014, Val Loss: 0.4279, Val AUC: 0.8780
+Checkpoint saved for epoch 9.
+Validation AUC improved from 0.8548 to 0.8780. Saving best model.
+Epoch 10/10, Train Loss: 0.4847, Val Loss: 0.4077, Val AUC: 0.8869
+Checkpoint saved for epoch 9.
+Validation AUC improved from 0.8548 to 0.8780. Saving best model.
+Checkpoint saved for epoch 9.
+Validation AUC improved from 0.8548 to 0.8780. Saving best model.
+Epoch 10/10, Train Loss: 0.4847, Val Loss: 0.4077, Val AUC: 0.8869
+Checkpoint saved for epoch 10.
+Validation AUC improved from 0.8780 to 0.8869. Saving best model.
+Best metrics for fold 1 saved to 'results\metrics\fold_0_metrics.json'.

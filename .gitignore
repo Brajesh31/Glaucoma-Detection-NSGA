@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Datasets and large files
+datasets/
+uploads/
+Gen1/
+Gen2/
+Gen3/
+results/
+
+# Environment
+my_gpu_env/
+.env
+*.ipynb_checkpoints
+
+# Logs and temporary files
+*.log
+tempCodeRunnerFile*
+plot_results*
+run_gradcam*
+visualize_generation_pareto*
+compare_generations*
+plot2*
+
+
